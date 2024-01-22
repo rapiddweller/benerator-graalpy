@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<setup  defaultSeparator="|">
+    <execute type="py" uri="lib.py"/>
+
+    <iterate type="person" name="person" source="person.ent.csv" consumer="ConsoleExporter">
+        <variable name="age" type="int" script="this.age"/>
+        <attribute name="multiply" type="int" script="{py:multiply(age, age)}"/>
+        <attribute name="complex_operation_with_pandas" type="string" script="{py:complex_operation_with_pandas(this.age)}"/>
+        <attribute name="fibonacci" type="int" script="{py:fibonacci(this.age)}"/>
+    </iterate>
+
+</setup>
